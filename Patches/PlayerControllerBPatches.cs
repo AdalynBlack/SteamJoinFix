@@ -42,6 +42,7 @@ public class PlayerControllerBPatches
 			if (GameNetworkManager.Instance.steamIdsInLobby.Contains(newPlayerSteamId))
 			{
 				AccessTools.Method(typeof(PlayerControllerB), "SendNewPlayerValuesServerRpc").Invoke(player, new object[] {(object) newPlayerSteamId});
+				yield break;
 			}
 			yield return null;
 		}
