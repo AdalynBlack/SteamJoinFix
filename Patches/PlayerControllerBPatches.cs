@@ -44,6 +44,7 @@ public class PlayerControllerBPatches
 				AccessTools.Method(typeof(PlayerControllerB), "SendNewPlayerValuesServerRpc").Invoke(player, new object[] {(object) newPlayerSteamId});
 				yield break;
 			}
+			NetworkManager.Singleton.DisconnectClient(player.actualClientId);
 			yield return null;
 		}
 	}
